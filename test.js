@@ -1,0 +1,1 @@
+albums.forEach(function(element, index, array){ratings[index]=element.querySelector('span:nth-of-type(1)').innerText;})
