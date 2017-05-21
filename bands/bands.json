@@ -1722,15 +1722,15 @@
 		"name": "ALASKAN"
 	},
 	{
-		"country": "Germany",
-		"genre": "Eclectic Prog",
-		"link": "http://www.progarchives.com/artist.asp?id=1573",
-		"name": "ALBATROS"
-	},
-	{
 		"country": "Spain",
 		"genre": "Heavy Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=4225",
+		"name": "ALBATROS"
+	},
+	{
+		"country": "Germany",
+		"genre": "Eclectic Prog",
+		"link": "http://www.progarchives.com/artist.asp?id=1573",
 		"name": "ALBATROS"
 	},
 	{
@@ -2628,15 +2628,15 @@
 		"name": "AMON"
 	},
 	{
-		"country": "Germany",
-		"genre": "Krautrock",
-		"link": "http://www.progarchives.com/artist.asp?id=1994",
-		"name": "AMON DÜÜL"
-	},
-	{
 		"country": "United Kingdom",
 		"genre": "Krautrock",
 		"link": "http://www.progarchives.com/artist.asp?id=1940",
+		"name": "AMON DÜÜL"
+	},
+	{
+		"country": "Germany",
+		"genre": "Krautrock",
+		"link": "http://www.progarchives.com/artist.asp?id=1994",
 		"name": "AMON DÜÜL"
 	},
 	{
@@ -20172,6 +20172,12 @@
 		"name": "FROST, NATHAN"
 	},
 	{
+		"country": "Australia",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10142",
+		"name": "FROSTY LEO"
+	},
+	{
 		"country": "United Kingdom",
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=6689",
@@ -30372,15 +30378,15 @@
 		"name": "LOCANDA DELLE FATE"
 	},
 	{
-		"country": "Mexico",
-		"genre": "Psychedelic/Space Rock",
-		"link": "http://www.progarchives.com/artist.asp?id=6569",
-		"name": "LOCH NESS"
-	},
-	{
 		"country": "Brazil",
 		"genre": "Symphonic Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=1942",
+		"name": "LOCH NESS"
+	},
+	{
+		"country": "Mexico",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=6569",
 		"name": "LOCH NESS"
 	},
 	{
@@ -30958,6 +30964,12 @@
 		"genre": "Post Rock/Math rock",
 		"link": "http://www.progarchives.com/artist.asp?id=5576",
 		"name": "LUNAR"
+	},
+	{
+		"country": "Russia",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10140",
+		"name": "LUNAR CAPE"
 	},
 	{
 		"country": "United States",
@@ -33084,6 +33096,12 @@
 		"name": "MELODRAMUS"
 	},
 	{
+		"country": "France",
+		"genre": "Crossover Prog",
+		"link": "http://www.progarchives.com/artist.asp?id=10139",
+		"name": "MELODY"
+	},
+	{
 		"country": "United States",
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=4582",
@@ -34414,6 +34432,12 @@
 		"genre": "Eclectic Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=5706",
 		"name": "MOJO POJO"
+	},
+	{
+		"country": "United Kingdom",
+		"genre": "Progressive Electronic",
+		"link": "http://www.progarchives.com/artist.asp?id=10138",
+		"name": "MOKSHA"
 	},
 	{
 		"country": "United Kingdom",
@@ -36474,6 +36498,12 @@
 		"name": "NEM-Q"
 	},
 	{
+		"country": "Finland",
+		"genre": "Progressive Electronic",
+		"link": "http://www.progarchives.com/artist.asp?id=10137",
+		"name": "NEMESIS"
+	},
+	{
 		"country": "Poland",
 		"genre": "Neo-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=4213",
@@ -37494,15 +37524,15 @@
 		"name": "NOVA"
 	},
 	{
-		"country": "Italy",
-		"genre": "Jazz Rock/Fusion",
-		"link": "http://www.progarchives.com/artist.asp?id=1571",
-		"name": "NOVA"
-	},
-	{
 		"country": "United States",
 		"genre": "Progressive Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=6627",
+		"name": "NOVA"
+	},
+	{
+		"country": "Italy",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=1571",
 		"name": "NOVA"
 	},
 	{
@@ -38514,6 +38544,12 @@
 		"name": "OMOIDE HATOBA"
 	},
 	{
+		"country": "Spain",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10141",
+		"name": "ON THE RAW"
+	},
+	{
 		"country": "Greece",
 		"genre": "Tech/Extreme Prog Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=8755",
@@ -39034,6 +39070,12 @@
 		"genre": "Crossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=10098",
 		"name": "ORION"
+	},
+	{
+		"country": "United States",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10136",
+		"name": "ORION TANGO"
 	},
 	{
 		"country": "Argentina",
@@ -42243,7 +42285,7 @@
 		"country": "Australia",
 		"genre": "Crossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=8051",
-		"name": "PROJECTED TWIN"
+		"name": "PROJECTED TWIN / EARTH MEET WORLD"
 	},
 	{
 		"country": "Netherlands",
@@ -42532,6 +42574,12 @@
 		"genre": "Krautrock",
 		"link": "http://www.progarchives.com/artist.asp?id=3458",
 		"name": "PSYCHEDELIC MONSTERJAM"
+	},
+	{
+		"country": "Finland",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10135",
+		"name": "PSYCHEDELIC SUN'S"
 	},
 	{
 		"country": "United Kingdom",
@@ -43330,6 +43378,12 @@
 		"genre": "Crossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=6793",
 		"name": "RADIANT FREQUENCY"
+	},
+	{
+		"country": "Russia",
+		"genre": "Progressive Electronic",
+		"link": "http://www.progarchives.com/artist.asp?id=10134",
+		"name": "RADIATION"
 	},
 	{
 		"country": "United States",
@@ -47940,6 +47994,12 @@
 		"name": "SKELETONBREATH"
 	},
 	{
+		"country": "Sweden",
+		"genre": "Krautrock",
+		"link": "http://www.progarchives.com/artist.asp?id=10133",
+		"name": "SKEPPET"
+	},
+	{
 		"country": "Germany",
 		"genre": "Experimental/Post Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=8272",
@@ -49054,6 +49114,12 @@
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=8739",
 		"name": "SPACE SPECTRUM, THE"
+	},
+	{
+		"country": "United States",
+		"genre": "Progressive Electronic",
+		"link": "http://www.progarchives.com/artist.asp?id=10132",
+		"name": "SPACE SWEEPER"
 	},
 	{
 		"country": "France",
@@ -53370,6 +53436,12 @@
 		"name": "TONE DOGS"
 	},
 	{
+		"country": "United States",
+		"genre": "Progressive Electronic",
+		"link": "http://www.progarchives.com/artist.asp?id=10131",
+		"name": "TÖNEN"
+	},
+	{
 		"country": "Bulgaria",
 		"genre": "Heavy Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=10070",
@@ -54184,6 +54256,12 @@
 		"genre": "Jazz Rock/Fusion",
 		"link": "http://www.progarchives.com/artist.asp?id=1228",
 		"name": "TRIPOD"
+	},
+	{
+		"country": "Austria",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10130",
+		"name": "TRIPTONUS"
 	},
 	{
 		"country": "United States",
@@ -57022,6 +57100,12 @@
 		"genre": "Post Rock/Math rock",
 		"link": "http://www.progarchives.com/artist.asp?id=9534",
 		"name": "WATTER"
+	},
+	{
+		"country": "United Kingdom",
+		"genre": "Progressive Electronic",
+		"link": "http://www.progarchives.com/artist.asp?id=10129",
+		"name": "WAVEMAKER"
 	},
 	{
 		"country": "United Kingdom",

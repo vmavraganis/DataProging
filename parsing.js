@@ -1,9 +1,7 @@
-var casper = require('casper').create();
+var casper = require('casperjs').create();
 var url = 'http://www.progarchives.com/bands-alpha.asp?letter=*';
 var fs = require('fs');
 var length;
-var start = Date.now();
-// the event you'd like to time goes here:
 
 casper.on('remote.message', function (msg) {
     this.echo("Remote:" + msg);
@@ -43,3 +41,4 @@ casper.then(function () {
 casper.run(function () {
     
 });
+casper.exit()
