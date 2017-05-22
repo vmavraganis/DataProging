@@ -1,1 +1,19 @@
-albums.forEach(function(element, index, array){ratings[index]=element.querySelector('span:nth-of-type(1)').innerText;})
+ _und = require("./underscore.js");
+  
+ var namelinks=
+_und
+.chain(bands)
+.map(function(band) {
+    return {
+            link:band.link
+    }
+})
+.value();
+
+var i = 0;
+var nTimes = namelinks.length;
+
+casper.repeat(nTimes, function() {
+    //... do your stuff
+    i++;
+});

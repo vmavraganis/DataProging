@@ -1,4 +1,4 @@
-var casper = require('casperjs').create();
+var casper = require('casper').create();
 var url = 'http://www.progarchives.com/bands-alpha.asp?letter=*';
 var fs = require('fs');
 var length;
@@ -41,4 +41,3 @@ casper.then(function () {
 casper.run(function () {
     
 });
-casper.exit()

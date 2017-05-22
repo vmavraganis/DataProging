@@ -1,12 +1,23 @@
 
+var Allbands=require('./bands/bands.json');
 
 var casper = require('casper').create();
 var url = 'http://www.progarchives.com/artist.asp?id=233';
 var fs = require('fs');
 var length;
-
- apotelesma;
-
+ _und = require("./underscore.js");
+  
+var bands=
+_und
+.chain(Allbands)
+.where({genre: "Zeuhl"})
+.map(function(band) {
+    return {
+            name:band.name,
+            link:band.link
+    }
+})
+.value();
 
 
 casper.on('remote.message', function (msg) {
@@ -20,14 +31,27 @@ casper.then(function () {
 });
 
 
-casper.then(function () {
 
-    var info = this.evaluate(apotelesma);
 
-    fs.write('./bands/marillion.json', JSON.stringify(info, null, '\t'), 'w');
-    console.log("done");
-  
+var i=0;
+
+var that=this;
+casper.then(function() {
+    this.each(bands, function() {
+         var name=bands[i].name;
+         // change the link being opened (has to be here specifically)
+       this.thenOpen((bands[i].link), function() {
+         var info = this.evaluate(apotelesma);
+         fs.write("./bands/zeuhl/"+name+".json", JSON.stringify(info, null, '\t'), 'w');
+                 
+        });
+        i++;
+    });
 });
+
+casper.then(function(){
+    console.log("done");
+})
 
 casper.run(function () {} );
 
