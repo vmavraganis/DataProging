@@ -1,0 +1,2 @@
+add folder for each genre 
+add band.json per band to the corresponding folder
