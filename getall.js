@@ -1,7 +1,7 @@
 var casper = require('casper').create();
 var url = 'http://www.progarchives.com/bands-alpha.asp?letter=*';
 var fs = require('fs');
-var length;
+_und = require("./underscore.js");
 
 casper.on('remote.message', function (msg) {
     this.echo("Remote:" + msg);
