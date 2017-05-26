@@ -2,3 +2,7 @@
 add folder for each genre 
 add band.json per band to the corresponding folder
 compare json and update each json genre
+
+
+!!!!!!!sos!!!!!!!
+change if exists method to create only update if neccesary

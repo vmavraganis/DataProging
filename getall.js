@@ -1,9 +1,17 @@
 var casper = require('casper').create();
-var url = 'http://www.progarchives.com/bands-alpha.asp?letter=*';
 var fs = require('fs');
-_und = require("./underscore.js");
+var _ = require("lodash");
+var config=require('./config');
+var url = config.bandsurl;
+var util = require(config.util);
+var outputpath = config.outputpath;
+var tempfile=config.tempfile;
+var updatefilepath=config.updatefilepath;
 
 casper.on('remote.message', function (msg) {
+    this.echo("Remote:" + msg);
+})
+casper.on('console.log()', function (msg) {
     this.echo("Remote:" + msg);
 })
 
@@ -12,32 +20,16 @@ casper.start(url);
 casper.then(function () {
     this.waitForSelector('table');
 });
-//*[@id="main"]/div[2]/table/tbody/tr[2]/td[1]/a
 
 casper.then(function () {
-    var info = this.evaluate(function () {
-        var table_rows = document.querySelectorAll("tbody tr"); //or better selector
-        var artists = [];
-        for (var i = 1; i < table_rows.length; i++) {            
-            columns = table_rows[i].querySelectorAll('td');
-            
-           
-                artists.push({
-                    'name': columns[0].innerText,
-                    'genre': columns[1].innerText,
-                    'country': columns[2].innerText,
-                    'link':columns[0].childElements(0)[0].href
-                });                
-        }
-        return artists;
-    });
+    var info = this.evaluate(util.parsebands);
 
-    fs.write('./bands/bands.json', JSON.stringify(info, null, '\t'), 'w');
+  util.createfile(info,outputpath,tempfile,updatefilepath);
+   
     console.log("done");
-    
+    casper.exit();
 });
 
-
 casper.run(function () {
-    
+
 });
