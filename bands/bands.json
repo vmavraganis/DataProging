@@ -4038,6 +4038,12 @@
 		"name": "AREKNAMÉS"
 	},
 	{
+		"country": "Australia",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10146",
+		"name": "ARENA"
+	},
+	{
 		"country": "United Kingdom",
 		"genre": "Neo-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=27",
@@ -4540,6 +4546,12 @@
 		"genre": "Progressive Electronic",
 		"link": "http://www.progarchives.com/artist.asp?id=7095",
 		"name": "ASCOIL SUN"
+	},
+	{
+		"country": "Russia",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10145",
+		"name": "ASCORBIC ACID"
 	},
 	{
 		"country": "Spain",
@@ -19740,15 +19752,15 @@
 		"name": "FRAGILE"
 	},
 	{
-		"country": "Japan",
-		"genre": "Jazz Rock/Fusion",
-		"link": "http://www.progarchives.com/artist.asp?id=7730",
-		"name": "FRAGILE"
-	},
-	{
 		"country": "China",
 		"genre": "Post Rock/Math rock",
 		"link": "http://www.progarchives.com/artist.asp?id=8161",
+		"name": "FRAGILE"
+	},
+	{
+		"country": "Japan",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=7730",
 		"name": "FRAGILE"
 	},
 	{
@@ -20592,6 +20604,12 @@
 		"name": "GAMBIT"
 	},
 	{
+		"country": "Italy",
+		"genre": "Rock Progressivo Italiano",
+		"link": "http://www.progarchives.com/artist.asp?id=2993",
+		"name": "GAN EDEN - IL GIARDINO DELLE DELIZIE"
+	},
+	{
 		"country": "Austria",
 		"genre": "Crossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=793",
@@ -21178,12 +21196,6 @@
 		"genre": "Neo-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=8825",
 		"name": "GIARDINO DEI VIZI CONTINUI, IL"
-	},
-	{
-		"country": "Italy",
-		"genre": "Rock Progressivo Italiano",
-		"link": "http://www.progarchives.com/artist.asp?id=2993",
-		"name": "GIARDINO DELLE DELIZIE"
 	},
 	{
 		"country": "Italy",
@@ -30378,15 +30390,15 @@
 		"name": "LOCANDA DELLE FATE"
 	},
 	{
-		"country": "Brazil",
-		"genre": "Symphonic Prog",
-		"link": "http://www.progarchives.com/artist.asp?id=1942",
-		"name": "LOCH NESS"
-	},
-	{
 		"country": "Mexico",
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=6569",
+		"name": "LOCH NESS"
+	},
+	{
+		"country": "Brazil",
+		"genre": "Symphonic Prog",
+		"link": "http://www.progarchives.com/artist.asp?id=1942",
 		"name": "LOCH NESS"
 	},
 	{
@@ -30982,6 +30994,12 @@
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=4084",
 		"name": "LUNAR DUNES"
+	},
+	{
+		"country": "United States",
+		"genre": "Krautrock",
+		"link": "http://www.progarchives.com/artist.asp?id=10150",
+		"name": "LUNAR GRAVE"
 	},
 	{
 		"country": "Greece",
@@ -32182,6 +32200,12 @@
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=4668",
 		"name": "MAPPE NOOTICHE"
+	},
+	{
+		"country": "United States",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10149",
+		"name": "MAPPLEBECK, KEVIN"
 	},
 	{
 		"country": "United States",
@@ -34324,6 +34348,12 @@
 		"genre": "Rock Progressivo Italiano",
 		"link": "http://www.progarchives.com/artist.asp?id=9518",
 		"name": "MÖBIUS PROJECT"
+	},
+	{
+		"country": "Italy",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10147",
+		"name": "MOBIUS STRIP"
 	},
 	{
 		"country": "New Zealand",
@@ -48379,6 +48409,12 @@
 	},
 	{
 		"country": "United States",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10148",
+		"name": "SMOKE"
+	},
+	{
+		"country": "United States",
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=6311",
 		"name": "SMOKING SPORE"
@@ -51028,6 +51064,12 @@
 		"genre": "Proto-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=2568",
 		"name": "SWEETWATER"
+	},
+	{
+		"country": "Poland",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10144",
+		"name": "SWIADECTWO DOJRZALOSCI"
 	},
 	{
 		"country": "France",

@@ -1,6 +1,6 @@
 var oldbands = require('./bands/bandsold.json');
 var bands = require('./bands/bands.json');
-_und = require("./underscore.js");
+_ = require("lodash");
 var fs = require('fs');
 
 
@@ -25,7 +25,7 @@ var writetofile=function(msgname,msg){
 
 /* create one file per genre */
  var genres=
- _und
+ _
 .chain(bands)
 .countBy(function(band){ return band.genre})
 .map(function(cnt,genre) {
@@ -37,7 +37,7 @@ var writetofile=function(msgname,msg){
 
 genres.forEach((genre)=>{
      var eidos=
- _und
+ _
  .chain(bands)
 .filter(function(band){
     return band.genre==genre

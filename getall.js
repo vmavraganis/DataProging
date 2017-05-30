@@ -27,7 +27,7 @@ casper.then(function () {
   util.createfile(info,outputpath,tempfile,updatefilepath);
    
     console.log("done");
-    casper.exit();
+    
 });
 
 casper.run(function () {
