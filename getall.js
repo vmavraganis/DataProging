@@ -14,6 +14,7 @@ casper.on('remote.message', function (msg) {
 casper.on('console.log()', function (msg) {
     this.echo("Remote:" + msg);
 })
+//
 
 casper.start(url);
 
