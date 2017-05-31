@@ -7,39 +7,25 @@ var moment = require('moment');
 // obja~objb difference left
 // objb~obja difference new
 
-compare = (obja, objb, identifier) => {
+compare = (oldobj, newobj, identifier) => {
   var difference = {};
-  difference.left = _.differenceBy(obja, objb, identifier);
-  difference.new = _.differenceBy(objb, obja, identifier);
+  difference.left = _.differenceBy(oldobj, newobj, identifier);
+  difference.new = _.differenceBy(newobj, oldobj, identifier);
 
   return difference;
 }
 
-createfile = (data, outputpath, tempfile, updatefilepath) => {
+createfile = (data, outputpath) => {
   var exists = fs.exists(outputpath);
-  
   if (!exists) {
-    fs.write(outputpath, JSON.stringify(data, null, '\t'), function (err) {
-      if (err) console.log('ERROR: ' + err)
-    }, 'w');
+   writetofile("bands",data);
 return;  
 }
-  else if (exists) {
-    if (fs.exists(tempfile)) {
-      fs.remove('./bands/bandsold.json', function (err) {
-        if (err) console.log('ERROR: ' + err);
-      });
-    }
-    fs.move(outputpath, tempfile, function (err) {
-      if (err) console.log('ERROR: ' + err);
-    });
-    fs.write(outputpath, JSON.stringify(data, null, '\t'), function (err) {
-      if (err) console.log('ERROR: ' + err)
-    }, 'w');
-    var oldf = require(tempfile);
-    var newf = require(outputpath);
-    var different = util.compare(newf, oldf, 'name');
-    different.length > 0 ? fs.write(updatefilepath, JSON.stringify(different, null, '\t'), 'w') : ""
+  else if (exists) {   
+    var oldf = require(outputpath);
+    var different = compare(oldf,data, 'name');
+    different.length > 0 ? writetofile(GetStringDateFormat(new Date())+"updates",different) : ""
+    writetofile("bands",data);
   }
 }
 
