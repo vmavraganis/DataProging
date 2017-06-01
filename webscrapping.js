@@ -1,23 +1,12 @@
 
-var Allbands=require('./bands/bands.json');
+var bands=require('./bands/bands.json');
 
 var casper = require('casper').create();
 var url = 'http://www.progarchives.com/artist.asp?id=233';
 var fs = require('fs');
 var length;
- _und = require("./underscore.js");
+ _und = require("lodash");
   
-var bands=
-_und
-.chain(Allbands)
-.where({genre: "Zeuhl"})
-.map(function(band) {
-    return {
-            name:band.name,
-            link:band.link
-    }
-})
-.value();
 
 
 casper.on('remote.message', function (msg) {

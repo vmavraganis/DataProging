@@ -6,21 +6,7 @@ var fs = require('fs');
 
 
 
-var writetofile=function(msgname,msg){
-    
-  var file=`./bands/${msgname}.json`
-  console.log(file);
- fs.open(file, 'w', function(err, fd) {
-     if(err){console.log(err)}
-   fs.write(fd, JSON.stringify(msg, null, '\t'), 'w',function(error,fd){
-       if (error){
-           console.log(error);
-       }
-   });
-   
- });
 
-}
 
 
 /* create one file per genre */
