@@ -7,7 +7,7 @@ var moment = require('moment');
 // obja~objb difference left
 // objb~obja difference new
 
-compare = (oldobj, newobj, identifier) => {
+module.exports.compare = function(oldobj, newobj, identifier)  {
   var difference = {};
   difference.left = _.differenceBy(oldobj, newobj, identifier);
   difference.new = _.differenceBy(newobj, oldobj, identifier);
@@ -15,7 +15,7 @@ compare = (oldobj, newobj, identifier) => {
   return difference;
 }
 
-createfile = (data, outputpath) => {
+module.exports.createfile = function(data, outputpath)  {
   var exists = fs.exists(outputpath);
   if (!exists) {
    writetofile("bands",data);
@@ -31,7 +31,7 @@ return;
 
 
 //parsing bands from the given url.Returns array of data
-parsebands = () => {
+module.exports.parsebands =  function()  {
   var table_rows = document.querySelectorAll("tbody tr");
   var artists = [];
   for (var i = 1; i < table_rows.length; i++) {
@@ -47,8 +47,8 @@ parsebands = () => {
 }
 
 //creates files with msgname title and msg data
-writetofile = (msgname, msg) => {
-  var file = `${config.resultsdir}${msgname}.json`
+module.exports.writetofile = function(msgname, msg){
+  var file = config.resultsdir+""+""+msgname+""+"json";
   console.log(file);
   fs.open(file, 'w', function (err, fd) {
     if (err) { console.log(err) }
@@ -61,20 +61,12 @@ writetofile = (msgname, msg) => {
   });
 }
 //returns any date to DDMMYYYY format
-GetStringDateFormat=(date)=>{
+module.exports.GetStringDateFormat= function(date){
 var check = moment(date, 'YYYY/MM/DD');
 var month = check.format('MM');
 var day = check.format('DD');
 var year = check.format('YYYY');
 return day + "" + month + "" + year;
-}
-
-module.exports = {
-  parsebands,
-  compare,
-  createfile,
-  writetofile,
-  GetStringDateFormat
 }
 
 

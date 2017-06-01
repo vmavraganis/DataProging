@@ -11,10 +11,11 @@ var casper = require('casper').create({
 var fs = require('fs');
 var _ = require("lodash");
 var config=require('./config');
-//var url = config.bandsurl;
+var url = config.bandsurl;
 var util = require(config.util);
 var outputpath = config.outputpath;
-var url="www.in.gr";
+
+
 console.log(url);
 
 
