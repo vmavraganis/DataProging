@@ -4,9 +4,8 @@ const _ = require('lodash');
 var moment = require('moment');
 
 // returns differences between obja and objb 
-// obja~objb difference left
-// objb~obja difference new
-
+// obja~objb difference leftitems
+// objb~obja difference newitems
 module.exports.compare = function (oldobj, newobj, identifier) {
   var difference = {};
   difference.leftitems = _.differenceBy(oldobj, newobj, identifier);
@@ -55,6 +54,33 @@ module.exports.parsebands = function () {
   }
   return artists;
 }
+//parsing records from the given url.Returns array of data
+module.exports.parseRecords = function () {
+  var categories = document.querySelectorAll("h3+table");
+  var studioalbums = categories[0].querySelectorAll("td");
+  var albums = [];
+  var album;
+  for (var i = 0; i < studioalbums.length; i++) {
+    album = {}
+    album['title'] = studioalbums[i].querySelector('strong').innerText;
+    album['link'] = studioalbums[i].querySelector('a').href;
+    album['year'] = studioalbums[i].querySelector('span:nth-of-type(3)').innerText;
+    album['rating'] = studioalbums[i].querySelector('span:nth-of-type(1)').innerText;
+    album['users'] = studioalbums[i].querySelector('span:nth-of-type(2)').innerText;
+    //album['result']=Math.log(users)*rating
+    albums.push(album);
+  };
+  return albums;
+};
+
+//returns any date to DDMMYYYY format
+module.exports.GetStringDateFormat = function (date) {
+  var check = moment(date, 'YYYY/MM/DD');
+  var month = check.format('MM');
+  var day = check.format('DD');
+  var year = check.format('YYYY');
+  return day + "" + month + "" + year;
+}
 
 //creates files with filename title and  data using casper fs commands
 module.exports.CasperWritetoFile = function (filename, data) {
@@ -70,14 +96,6 @@ module.exports.CasperWritetoFile = function (filename, data) {
   }
 }
 
-//returns any date to DDMMYYYY format
-module.exports.GetStringDateFormat = function (date) {
-  var check = moment(date, 'YYYY/MM/DD');
-  var month = check.format('MM');
-  var day = check.format('DD');
-  var year = check.format('YYYY');
-  return day + "" + month + "" + year;
-}
 //creates files with filename title and  data using node fs commands
 module.exports.NodeWritetoFile = function (filename, data) {
   var file = config.resultsdir + "" + "" + filename + "" + ".json";
@@ -93,8 +111,6 @@ module.exports.NodeWritetoFile = function (filename, data) {
 
   });
 }
-
-
 
 
 

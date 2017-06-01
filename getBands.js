@@ -1,5 +1,5 @@
 var casper = require('casper').create({
-    verbose: true,
+    verbose: false,
     logLevel: 'debug',
     pageSettings: {
         loadImages: false,
@@ -40,6 +40,7 @@ casper.on('console.log()', function (msg) {
   util.updateBands(info,outputpath);
    
      console.log("done");
+     casper.exit();
     
  });
 
