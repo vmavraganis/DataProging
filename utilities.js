@@ -9,23 +9,27 @@ var moment = require('moment');
 
 module.exports.compare = function(oldobj, newobj, identifier)  {
   var difference = {};
-  difference.left = _.differenceBy(oldobj, newobj, identifier);
-  difference.new = _.differenceBy(newobj, oldobj, identifier);
+  difference.leftitems = _.differenceBy(oldobj, newobj, identifier);
+  difference.newitems = _.differenceBy(newobj, oldobj, identifier);
 
   return difference;
 }
 
-module.exports.createfile = function(data, outputpath)  {
+module.exports.updateBands = function(data, outputpath)  {
   var exists = fs.exists(outputpath);
   if (!exists) {
-   writetofile("bands",data);
+   this.writetofile("bands",data);
 return;  
 }
   else if (exists) {   
     var oldf = require(outputpath);
-    var different = compare(oldf,data, 'name');
-    different.length > 0 ? writetofile(GetStringDateFormat(new Date())+"updates",different) : ""
-    writetofile("bands",data);
+    var different = this.compare(oldf,data,'link');
+    console.log("old file length :"+oldf.length);
+    console.log("new data length :"+data.length);
+    console.log("new items :"+different.newitems.length);
+    different.length > 0 ? writetofile(this.GetStringDateFormat(new Date())+"updates",different) 
+    : console.log("nothing changed");
+    this.writetofile("bands",data);
   }
 }
 
@@ -48,7 +52,7 @@ module.exports.parsebands =  function()  {
 
 //creates files with msgname title and msg data
 module.exports.writetofile = function(msgname, msg){
-  var file = config.resultsdir+""+""+msgname+""+"json";
+  var file = config.resultsdir+""+""+msgname+""+".json";
   console.log(file);
   fs.open(file, 'w', function (err, fd) {
     if (err) { console.log(err) }

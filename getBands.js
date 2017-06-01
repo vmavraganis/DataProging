@@ -29,8 +29,7 @@ casper.on('console.log()', function (msg) {
 
  casper.start(url);
 
- casper.userAgent('Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0');
-
+ 
  casper.then(function () {
      this.waitForSelector('table');
  });
@@ -38,7 +37,7 @@ casper.on('console.log()', function (msg) {
  casper.then(function () {
     var info = this.evaluate(util.parsebands);
 
-//   util.updateBands(outputpath,info);
+  util.updateBands(info,outputpath);
    
      console.log("done");
     
