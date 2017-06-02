@@ -57,19 +57,35 @@ module.exports.parsebands = function () {
 //parsing records from the given url.Returns array of data
 module.exports.parseRecords = function () {
   var categories = document.querySelectorAll("h3+table");
-  var studioalbums = categories[0].querySelectorAll("td");
-  var albums = [];
-  var album;
-  for (var i = 0; i < studioalbums.length; i++) {
+  var studioalbumshtml = categories[0].querySelectorAll("td");
+  var livealbumshtml = categories[1].querySelectorAll("td");
+  var albums = {};
+  albums['studioalbums']=[];
+  albums['livealbums']=[];
+  
+  for (var i = 0; i < studioalbumshtml.length; i++) {
     album = {}
-    album['title'] = studioalbums[i].querySelector('strong').innerText;
-    album['link'] = studioalbums[i].querySelector('a').href;
-    album['year'] = studioalbums[i].querySelector('span:nth-of-type(3)').innerText;
-    album['rating'] = studioalbums[i].querySelector('span:nth-of-type(1)').innerText;
-    album['users'] = studioalbums[i].querySelector('span:nth-of-type(2)').innerText;
-    //album['result']=Math.log(users)*rating
-    albums.push(album);
+    album['title'] = studioalbumshtml[i].querySelector('strong').innerText;
+    album['link'] = studioalbumshtml[i].querySelector('a').href;
+    album['year'] = studioalbumshtml[i].querySelector('span:nth-of-type(3)').innerText;
+    var rating = studioalbumshtml[i].querySelector('span:nth-of-type(1)').innerText;
+    var users = studioalbumshtml[i].querySelector('span:nth-of-type(2)').innerText;
+    album['result'] = Math.log(users) * rating
+    albums.studioalbums.push(album);
   };
+
+  for (var i = 0; i < livealbumshtml.length; i++) {
+    album = {}
+    album['title'] = livealbumshtml[i].querySelector('strong').innerText;
+    album['link'] = livealbumshtml[i].querySelector('a').href;
+    album['year'] = livealbumshtml[i].querySelector('span:nth-of-type(3)').innerText;
+     rating = livealbumshtml[i].querySelector('span:nth-of-type(1)').innerText;
+     users = livealbumshtml[i].querySelector('span:nth-of-type(2)').innerText;
+    album['result'] = Math.log(users) * rating
+    albums.livealbums.push(album);
+  };
+
+
   return albums;
 };
 
