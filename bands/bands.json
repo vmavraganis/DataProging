@@ -834,15 +834,15 @@
 		"name": "ACID RAIN"
 	},
 	{
-		"country": "Spain",
-		"genre": "Progressive Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=6417",
-		"name": "ACID RAIN"
-	},
-	{
 		"country": "Argentina",
 		"genre": "Progressive Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=5406",
+		"name": "ACID RAIN"
+	},
+	{
+		"country": "Spain",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=6417",
 		"name": "ACID RAIN"
 	},
 	{
@@ -1678,6 +1678,12 @@
 		"genre": "Symphonic Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=2421",
 		"name": "ALAMEDA"
+	},
+	{
+		"country": "Poland",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10156",
+		"name": "ALAMEDA 5"
 	},
 	{
 		"country": "France",
@@ -5148,6 +5154,12 @@
 		"name": "ATROX"
 	},
 	{
+		"country": "Germany",
+		"genre": "Krautrock",
+		"link": "http://www.progarchives.com/artist.asp?id=10157",
+		"name": "ATTEMPT TO RESTORE"
+	},
+	{
 		"country": "United States",
 		"genre": "Jazz Rock/Fusion",
 		"link": "http://www.progarchives.com/artist.asp?id=776",
@@ -7194,6 +7206,12 @@
 		"name": "BIG PICTURE"
 	},
 	{
+		"country": "Portugal",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10152",
+		"name": "BIG RED PANDA"
+	},
+	{
 		"country": "Norway",
 		"genre": "Progressive Electronic",
 		"link": "http://www.progarchives.com/artist.asp?id=5399",
@@ -7894,6 +7912,12 @@
 		"genre": "Krautrock",
 		"link": "http://www.progarchives.com/artist.asp?id=2952",
 		"name": "BOKAJ RETSIEM"
+	},
+	{
+		"country": "United Kingdom",
+		"genre": "Indo-Prog/Raga Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10151",
+		"name": "BOLE, ANDY"
 	},
 	{
 		"country": "Belgium",
@@ -11634,6 +11658,12 @@
 		"name": "COMUS"
 	},
 	{
+		"country": "Germany",
+		"genre": "Progressive Electronic",
+		"link": "http://www.progarchives.com/artist.asp?id=10159",
+		"name": "CON HERTZ"
+	},
+	{
 		"country": "United States",
 		"genre": "Post Rock/Math rock",
 		"link": "http://www.progarchives.com/artist.asp?id=5943",
@@ -14136,6 +14166,12 @@
 		"name": "DGM"
 	},
 	{
+		"country": "Italy",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10155",
+		"name": "DHVANI"
+	},
+	{
 		"country": "United States",
 		"genre": "Jazz Rock/Fusion",
 		"link": "http://www.progarchives.com/artist.asp?id=2075",
@@ -16362,15 +16398,15 @@
 		"name": "ELEND"
 	},
 	{
-		"country": "Finland",
-		"genre": "Tech/Extreme Prog Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=4550",
-		"name": "ELENIUM"
-	},
-	{
 		"country": "Poland",
 		"genre": "Tech/Extreme Prog Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=5013",
+		"name": "ELENIUM"
+	},
+	{
+		"country": "Finland",
+		"genre": "Tech/Extreme Prog Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=4550",
 		"name": "ELENIUM"
 	},
 	{
@@ -16633,7 +16669,7 @@
 	},
 	{
 		"country": "Netherlands",
-		"genre": "Crossover Prog",
+		"genre": "ossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=8003",
 		"name": "EMMENS, GERT"
 	},
@@ -21843,7 +21879,7 @@
 		"country": "Spain",
 		"genre": "Symphonic Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=618",
-		"name": "GOTIC"
+		"name": "GÒTIC"
 	},
 	{
 		"country": "Japan",
@@ -21885,7 +21921,7 @@
 		"country": "United Kingdom",
 		"genre": "Canterbury Scene",
 		"link": "http://www.progarchives.com/artist.asp?id=2913",
-		"name": "GOWEN, MILLER, SINCLAIR, TOMKINS"
+		"name": "GOWEN - MILLER - SINCLAIR - TOMKINS"
 	},
 	{
 		"country": "France",
@@ -30390,15 +30426,15 @@
 		"name": "LOCANDA DELLE FATE"
 	},
 	{
-		"country": "Mexico",
-		"genre": "Psychedelic/Space Rock",
-		"link": "http://www.progarchives.com/artist.asp?id=6569",
-		"name": "LOCH NESS"
-	},
-	{
 		"country": "Brazil",
 		"genre": "Symphonic Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=1942",
+		"name": "LOCH NESS"
+	},
+	{
+		"country": "Mexico",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=6569",
 		"name": "LOCH NESS"
 	},
 	{
@@ -31716,15 +31752,15 @@
 		"name": "MAJA DE RADO & PORODICNA MANUFAKTURA CRNOG HLEBA"
 	},
 	{
-		"country": "Sweden",
-		"genre": "Progressive Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=702",
-		"name": "MAJESTIC"
-	},
-	{
 		"country": "United States",
 		"genre": "Neo-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=4942",
+		"name": "MAJESTIC"
+	},
+	{
+		"country": "Sweden",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=702",
 		"name": "MAJESTIC"
 	},
 	{
@@ -32256,15 +32292,15 @@
 		"name": "MARANHA, DAVID"
 	},
 	{
-		"country": "Italy",
-		"genre": "Neo-Prog",
-		"link": "http://www.progarchives.com/artist.asp?id=8417",
-		"name": "MARATHON"
-	},
-	{
 		"country": "Netherlands",
 		"genre": "Neo-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=905",
+		"name": "MARATHON"
+	},
+	{
+		"country": "Italy",
+		"genre": "Neo-Prog",
+		"link": "http://www.progarchives.com/artist.asp?id=8417",
 		"name": "MARATHON"
 	},
 	{
@@ -37974,15 +38010,15 @@
 		"name": "OBLOMOV"
 	},
 	{
-		"country": "Italy",
-		"genre": "Rock Progressivo Italiano",
-		"link": "http://www.progarchives.com/artist.asp?id=3471",
-		"name": "OBSCURA"
-	},
-	{
 		"country": "Germany",
 		"genre": "Tech/Extreme Prog Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=6374",
+		"name": "OBSCURA"
+	},
+	{
+		"country": "Italy",
+		"genre": "Rock Progressivo Italiano",
+		"link": "http://www.progarchives.com/artist.asp?id=3471",
 		"name": "OBSCURA"
 	},
 	{
@@ -41188,6 +41224,12 @@
 		"genre": "Crossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=6903",
 		"name": "PING PONG"
+	},
+	{
+		"country": "Germany",
+		"genre": "Krautrock",
+		"link": "http://www.progarchives.com/artist.asp?id=10158",
+		"name": "PINGUIN"
 	},
 	{
 		"country": "Sweden",
@@ -50298,15 +50340,15 @@
 		"name": "STRAWBS"
 	},
 	{
-		"country": "Switzerland",
-		"genre": "Progressive Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=5048",
-		"name": "STREAM OF CONSCIOUSNESS"
-	},
-	{
 		"country": "United States",
 		"genre": "Progressive Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=6241",
+		"name": "STREAM OF CONSCIOUSNESS"
+	},
+	{
+		"country": "Switzerland",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=5048",
 		"name": "STREAM OF CONSCIOUSNESS"
 	},
 	{
@@ -51276,15 +51318,15 @@
 		"name": "SYNERGY PROTOCOL"
 	},
 	{
-		"country": "Dominican Republic",
-		"genre": "Progressive Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=8594",
-		"name": "SYNESTHESIA"
-	},
-	{
 		"country": "France",
 		"genre": "Progressive Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=9761",
+		"name": "SYNESTHESIA"
+	},
+	{
+		"country": "Dominican Republic",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=8594",
 		"name": "SYNESTHESIA"
 	},
 	{
@@ -52408,6 +52450,12 @@
 		"genre": "Heavy Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=3916",
 		"name": "THAYKHAY"
+	},
+	{
+		"country": "Canada",
+		"genre": "Psychedelic/Space Rock",
+		"link": "http://www.progarchives.com/artist.asp?id=10153",
+		"name": "THE BAND WHOSE NAME IS A SYMBOL"
 	},
 	{
 		"country": "France",
@@ -57346,6 +57394,12 @@
 		"genre": "Prog Folk",
 		"link": "http://www.progarchives.com/artist.asp?id=1541",
 		"name": "WERWOLF (WEREWOLF ART ROCK)"
+	},
+	{
+		"country": "Norway",
+		"genre": "Krautrock",
+		"link": "http://www.progarchives.com/artist.asp?id=10154",
+		"name": "WESERBERGLAND"
 	},
 	{
 		"country": "United States",
