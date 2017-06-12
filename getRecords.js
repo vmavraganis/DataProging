@@ -30,12 +30,16 @@ casper.options.onResourceRequested = function(casper, requestData, request) {
     'cm.g.doubleclick.net',
     'www.googleadservices.com'
   ];
-
-  skip.forEach(function(needle) {
-    if (requestData.url.indexOf(needle) > 0) {
+   var check = [
+    'www.progarchives.com'
+  ];
+  check.forEach(function(needle) {
+    if (requestData.url.indexOf(needle) < 0) {
       request.abort();
     }
   })
+
+
 };
 
 
@@ -45,7 +49,7 @@ const _ = require("lodash");
 const config = require('./config');
 const util = require(config.util);
 const outputpath = config.outputpath;
-const bands = require('./bands/bands.json');
+const bands = require('./bands/test.json');
 
 
 

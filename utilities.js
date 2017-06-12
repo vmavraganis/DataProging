@@ -54,6 +54,8 @@ module.exports.parsebands = function () {
   }
   return artists;
 }
+
+
 //parsing records from the given url.Returns array of data
 module.exports.parseRecords = function () {
   var categories = document.querySelectorAll("h3+table");
