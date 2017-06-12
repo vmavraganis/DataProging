@@ -1,7 +1,7 @@
-var config=require('./config');
+var config = require('./config');
 var util = require(config.util);
 var outputpath = config.outputpath;
-var bands=require(config.outputpath);
+var bands = require(config.outputpath);
 const _ = require('lodash');
 
 
@@ -38,34 +38,50 @@ const bands=require('./bands/test.json');
 // (/^[a-zA-Z0-9- ]*$/.test(str))
 
 
-    
+
 
 
 // var gamimenesbades= _.filter(bands, function(o) { return (/w*([<>"*:\/?|]\w*)/.test(o.name)) });
 // console.log(gamimenesbades);
 
 
-var genre="Post Rock/Math rock";
-genre=_.replace(genre, '/', '-');
-console.log(genre);
+// var genre="Post Rock/Math rock";
+// genre=_.replace(genre, '/', '-');
+// console.log(genre);
 
 
-var fname=_.snakeCase(bands[1].name);
-    var genre=_.replace(genre, '/', '-');;
+// var fname=_.snakeCase(bands[1].name);
+//     var genre=_.replace(genre, '/', '-');;
 
 //util.NodeWritetoFile("test",renamings)
 
 // var wrapped = _([1, 2, 3]);
- 
+
 // // Returns an unwrapped value.
 // wrapped.reduce(_.add);
 // // => 6
- 
+
 // // Returns a wrapped value.
 // var squares = wrapped.map(square);
- 
+
 // _.isArray(squares);
 // // => false
- 
+
 // _.isArray(squares.value());
 // // => true
+
+//     country = "Chile"
+// //console.log(_.filter(bands,function (band) { return band.country == country }))
+
+//     var countries = _
+//     .map(_.uniqBy(bands, 'country'), function (band) { return band.country; })
+//     .sort()
+
+
+
+    let genre="krautrock";
+    let country;//="germany";
+
+      genre=_.startCase(genre);
+      country=_.startCase(country);
+console.log(_.upperCase("AYERS, KEVIN"));

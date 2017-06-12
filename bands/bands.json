@@ -8340,6 +8340,12 @@
 		"name": "BRAN (BRÂN)"
 	},
 	{
+		"country": "Australia",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=10160",
+		"name": "BRANCH ARTERIAL"
+	},
+	{
 		"country": "United Kingdom",
 		"genre": "Jazz Rock/Fusion",
 		"link": "http://www.progarchives.com/artist.asp?id=660",
@@ -16398,15 +16404,15 @@
 		"name": "ELEND"
 	},
 	{
-		"country": "Poland",
-		"genre": "Tech/Extreme Prog Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=5013",
-		"name": "ELENIUM"
-	},
-	{
 		"country": "Finland",
 		"genre": "Tech/Extreme Prog Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=4550",
+		"name": "ELENIUM"
+	},
+	{
+		"country": "Poland",
+		"genre": "Tech/Extreme Prog Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=5013",
 		"name": "ELENIUM"
 	},
 	{
@@ -16669,7 +16675,7 @@
 	},
 	{
 		"country": "Netherlands",
-		"genre": "ossover Prog",
+		"genre": "Crossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=8003",
 		"name": "EMMENS, GERT"
 	},
