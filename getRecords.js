@@ -16,20 +16,9 @@ var casper = require('casper').create({
 
 
 
-/**
- * Add a listener for the phantomjs resource request.
- *
- * This allows us to abort requests for external resources that we don't need
- * like Google adwords tracking.
- */
+
 casper.options.onResourceRequested = function(casper, requestData, request) {
-  // If any of these strings are found in the requested resource's URL, skip
-  // this request. These are not required for running tests.
-  var skip = [
-    'googleads.g.doubleclick.net',
-    'cm.g.doubleclick.net',
-    'www.googleadservices.com'
-  ];
+
    var check = [
     'www.progarchives.com'
   ];
@@ -38,23 +27,23 @@ casper.options.onResourceRequested = function(casper, requestData, request) {
       request.abort();
     }
   })
-
-
 };
-
-
 
 const fs = require('fs');
 const _ = require("lodash");
 const config = require('./config');
 const util = require(config.util);
 const outputpath = config.outputpath;
-const bands = require('./bands/test.json');
+const bands = require('./bands/bands.json');
 
 
 
 casper.on('remote.message', function (msg) {
     this.echo("Remote:" + msg);
+})
+
+casper.on('err', function (msg) {
+    this.echo("error:" + msg);
 })
 
 casper.start();
