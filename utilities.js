@@ -117,8 +117,6 @@ module.exports.CasperWritetoFile = function (filename, data) {
 //creates files with filename title and  data using node fs commands
 module.exports.NodeWritetoFile = function (filename, data) {
   var file = config.resultsdir + "" + "" + filename + "" + ".json";
-  console.log("data to be written" + data);
-  console.log(file);
   fs.open(file, 'w', function (err, fd) {
     if (err) { console.log(err) }
     fs.write(fd, JSON.stringify(data, null, '\t'), 'w', function (error, fd) {
