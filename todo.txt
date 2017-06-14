@@ -1,6 +1,8 @@
 https://www.uuidgenerator.net/api/version4
 get request to take uuid (use it in getBands)
 
+duplicates
 
-find a way to include record info in the response of 
-get /bands/?name request
+same name 
+same genre
+different country

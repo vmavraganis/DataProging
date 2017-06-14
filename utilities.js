@@ -128,15 +128,15 @@ module.exports.NodeWritetoFile = function (filename, data) {
   });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports.readJSONFile=function (filename, callback) {
+  fs.readFile(filename, function (err, data) {
+    if(err) {
+      callback(err);
+      return;
+    }
+    try {
+      callback(null, JSON.parse(data));
+    } catch(exception) {
+      callback(exception);
+    }
+  })};

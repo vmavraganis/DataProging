@@ -6,3 +6,5 @@ util :'./utilities',
 outputpath :"./bands/bands.json",
 resultsdir:"./bands/",
 }
+
+module.exports.utilities=require('./utilities');

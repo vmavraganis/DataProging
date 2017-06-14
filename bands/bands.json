@@ -4136,6 +4136,12 @@
 	{
 		"country": "United States",
 		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=10163",
+		"name": "ARITIFICIAL LANGUAGE"
+	},
+	{
+		"country": "United States",
+		"genre": "Progressive Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=8457",
 		"name": "ARITY"
 	},
@@ -5518,6 +5524,12 @@
 		"genre": "Prog Folk",
 		"link": "http://www.progarchives.com/artist.asp?id=6973",
 		"name": "AVE SANGRIA"
+	},
+	{
+		"country": "Italy",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=10161",
+		"name": "AVELION"
 	},
 	{
 		"country": "Sweden",
@@ -14322,6 +14334,12 @@
 		"name": "DIEGO DE MORON"
 	},
 	{
+		"country": "Monaco",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10164",
+		"name": "DIES GOA UNIT"
+	},
+	{
 		"country": "Germany",
 		"genre": "Krautrock",
 		"link": "http://www.progarchives.com/artist.asp?id=2031",
@@ -16404,15 +16422,15 @@
 		"name": "ELEND"
 	},
 	{
-		"country": "Finland",
-		"genre": "Tech/Extreme Prog Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=4550",
-		"name": "ELENIUM"
-	},
-	{
 		"country": "Poland",
 		"genre": "Tech/Extreme Prog Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=5013",
+		"name": "ELENIUM"
+	},
+	{
+		"country": "Finland",
+		"genre": "Tech/Extreme Prog Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=4550",
 		"name": "ELENIUM"
 	},
 	{
@@ -41808,6 +41826,12 @@
 		"name": "PORCUPINE TREE"
 	},
 	{
+		"country": "Germany",
+		"genre": "Jazz Rock/Fusion",
+		"link": "http://www.progarchives.com/artist.asp?id=10165",
+		"name": "PORK PIE"
+	},
+	{
 		"country": "Finland",
 		"genre": "Eclectic Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=9848",
@@ -56188,6 +56212,12 @@
 		"genre": "Psychedelic/Space Rock",
 		"link": "http://www.progarchives.com/artist.asp?id=4634",
 		"name": "VIBRAVOID"
+	},
+	{
+		"country": "Norway",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=10162",
+		"name": "VICINITY"
 	},
 	{
 		"country": "Ireland",

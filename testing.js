@@ -2,17 +2,18 @@ var config = require('./config');
 var util = require(config.util);
 var outputpath = config.outputpath;
 const _ = require('lodash');
-const cheerio=require("cheerio");
-const request=require("request");
+const cheerio = require("cheerio");
+const request = require("request");
 const fs = require('fs');
 const bands = require('./bands/bands.json');
 var path = require('path');
-var dirtree=require('./bands/struct.json');
-
-var names=[];
-var rightdata=[];
 
 
+var files = [];
+var rightdata = [];
+
+
+//create json with folder structure
 
 // var dirTree = ('./bands');
 
@@ -59,48 +60,68 @@ var rightdata=[];
 
 
 // diretoryTreeToObj(dirTree, function(err, res){
-//     if(err)
-//         console.error(err);
-
-//     util.NodeWritetoFile("struct",res);
+//     (err)?console.error(err):util.NodeWritetoFile("struct",res);
 // });
 
 
 
 
+//create json file with list of bands filenames
 
+//   var dirtree =require("./bands/struct.json");
 
-// for  (var genre of dirtree ){
-//   if(genre.children){
-//     names.push(genre.children)};
+//  for (var genre of dirtree) {
+//     if (genre.children) {
+//         files.push(genre.children)
+//     };
 // }
-  
-//   names=_.reduceRight(names, function(flattened, other) {
-//    return flattened.concat(other);
-//  }, []);
+// //files = _.map(files, 'name');
+// files = _.reduceRight(files, function (flattened, other) {
+//     return flattened.concat(other);
+// }, []);
+// files = _.map(files, 'name');
+// files.sort();
+// util.NodeWritetoFile("filenames", files);
+
+
 
 // for  (var band of bands ){
 //     rightdata.push(_.snakeCase(band.name)+".json");
 // }
+// rightdata.sort();
+// util.NodeWritetoFile("bandsonsite",rightdata);
 
-// names=_.map(names, 'name')
 
-//  var missingbandsnames=_.difference(rightdata,names);
-//  console.log(missingbandsnames);
+
+//    var filenames =require("./bands/filenames.json");
+//    var Bands =require("./bands/bandsonsite.json");
+//    var diff=[];
+// for(var i=0;i<filenames.length;i++){
+//     filenames[i]==Bands[i]?"":diff.push(Bands[i]);
+// }
+// console.log(diff);
+
+
+
+
+//  var missingbandsnames=_.difference(filenames,Bands);
+//  var missingbandsnames2=_.difference(Bands,filenames);
+//  console.log(missingbandsnames,missingbandsnames2);
+//   console.log(Bands.length-filenames.length);
 
 //  util.NodeWritetoFile("bandnames",names);
 //  util.NodeWritetoFile("rightdata",rightdata);
 
-var files=require("./bands/bandnames.json");
-var sitebands=require("./bands/rightdata.json");
-sitebands.sort();
-files.sort();
+// var files=require("./bands/bandnames.json");
+// var sitebands=require("./bands/rightdata.json");
+// sitebands.sort();
+// files.sort();
 
 
-var missingbandsnames=_.difference(files,sitebands);
-var missingbandsnames2=_.difference(sitebands,files);
+// var missingbandsnames=_.difference(files,sitebands);
+// var missingbandsnames2=_.difference(sitebands,files);
 
- console.log(missingbandsnames,missingbandsnames2);
+//  console.log(missingbandsnames,missingbandsnames2);
 
 
 
@@ -108,7 +129,7 @@ var missingbandsnames2=_.difference(sitebands,files);
 // console.log(missingbandsnames);
 // var missingbands=[];
 
- 
+
 // var test=  _.filter(bands,function(band) {missingbandsnames.forEach(function(needle) {
 //     var name=_.snakeCase(band.name)+".json"
 //     if (name.indexOf(needle) >= 0) {
@@ -116,12 +137,15 @@ var missingbandsnames2=_.difference(sitebands,files);
 //     }
 //   }) })
 
-  
-  
+
+
 
 
 // util.NodeWritetoFile("bandnames",names);
 // util.NodeWritetoFile("rightdata",rightdata);
+
+
+
 
 
 
