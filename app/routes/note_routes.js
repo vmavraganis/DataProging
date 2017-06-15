@@ -71,13 +71,78 @@ module.exports = function (app, db) {
             var genre = _.replace(band.genre, '/', '-');
             var dir = "bands";
             var outputpath = path.resolve(dir, genre, fname + ".json");
-            util.readJSONFile(outputpath, function (err, json) {
+            util.readJSONFile(outputpath, function (err, data) {
                 if (err) { count = count - 1; throw err; }
                 var resultband = {}
                 resultband['country'] = band.country;
-                resultband['Title'] = json.title
-                resultband['studioalbums'] = json.studioalbums;
-                resultband['livealbums'] = json.livealbums;
+                // resultband['Title'] = data.title
+                // resultband['studioalbums'] = data.studioalbums;
+                // resultband['livealbums'] = data.livealbums;
+                for (var prop in data){
+                    resultband[prop]=data[prop];
+                }
+               // if(resultband.studioalbums)
+                Bands.push(resultband);
+                count = count - 1;
+                if (count == 0)
+                    res.send(Bands);
+            });
+        });
+
+        //response=bands
+
+
+
+    });
+
+
+        app.get('/genres/:genre/', function (req, res) {
+        var name = req.params.name;
+        name = _.upperCase(name);
+        console.log(name);
+        let finalvar = true;
+        var Bands = []
+        var response = {}
+        var result = _.filter(bands, function (band) {
+            if (name != "") {
+                finalvar = (band.genre == genre);
+            }
+            return finalvar;
+        });
+        var count = result.length;
+
+        if (count > 0) { response['data'] = result }
+        else {
+            response['data'] = [];
+            res.set('Error_Message', "Band or artist not found");
+            res.send(response);
+            return;
+        }
+        console.log("artist found");
+
+
+        res.set('Bands', response.data.length);
+
+
+
+
+        result.forEach(function (band) {
+            var name = band.name;
+            var fname = _.snakeCase(band.name);
+            var genre = _.replace(band.genre, '/', '-');
+            var dir = "bands";
+            var outputpath = path.resolve(dir, genre, fname + ".json");
+            util.readJSONFile(outputpath, function (err, data) {
+                if (err) { count = count - 1; throw err; }
+                var resultband = {}
+                resultband['country'] = band.country;
+                // resultband['Title'] = data.title
+                // resultband['studioalbums'] = data.studioalbums;
+                // resultband['livealbums'] = data.livealbums;
+                for (var prop in data){
+                    resultband[prop]=data[prop];
+                }
+               // if(resultband.studioalbums)
                 Bands.push(resultband);
                 count = count - 1;
                 if (count == 0)

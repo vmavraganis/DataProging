@@ -62,9 +62,9 @@ module.exports.parseRecords = function () {
   var studioalbumshtml = categories[0].querySelectorAll("td");
   var livealbumshtml = categories[1].querySelectorAll("td");
   var albums = {};
-  albums['studioalbums']=[];
-  albums['livealbums']=[];
-  
+  albums['studioalbums'] = [];
+  albums['livealbums'] = [];
+
   for (var i = 0; i < studioalbumshtml.length; i++) {
     album = {}
     album['title'] = studioalbumshtml[i].querySelector('strong').innerText;
@@ -81,8 +81,8 @@ module.exports.parseRecords = function () {
     album['title'] = livealbumshtml[i].querySelector('strong').innerText;
     album['link'] = livealbumshtml[i].querySelector('a').href;
     album['year'] = livealbumshtml[i].querySelector('span:nth-of-type(3)').innerText;
-     rating = livealbumshtml[i].querySelector('span:nth-of-type(1)').innerText;
-     users = livealbumshtml[i].querySelector('span:nth-of-type(2)').innerText;
+    rating = livealbumshtml[i].querySelector('span:nth-of-type(1)').innerText;
+    users = livealbumshtml[i].querySelector('span:nth-of-type(2)').innerText;
     album['result'] = Math.log(users) * rating
     albums.livealbums.push(album);
   };
@@ -128,15 +128,45 @@ module.exports.NodeWritetoFile = function (filename, data) {
   });
 }
 
-module.exports.readJSONFile=function (filename, callback) {
+module.exports.readJSONFile = function (filename, callback) {
   fs.readFile(filename, function (err, data) {
-    if(err) {
+    if (err) {
       callback(err);
       return;
     }
     try {
       callback(null, JSON.parse(data));
-    } catch(exception) {
+    } catch (exception) {
       callback(exception);
     }
-  })};
+  })
+};
+
+
+module.exports.getDailyupdates = function () {
+  const tobeparseddata = require('./bands/tobeparsed.json');
+  const updates = config.resultsdir + "" + util.GetStringDateFormat(new Date()) + "updates.json";
+  if (!fs.exists(updates)) { return }
+  const todayupdates = require(updates);
+
+  if (todayupdates.newitems) {
+    console.log("there are new items");
+    todayupdates.newitems.forEach(function (band) {
+      tobeparseddata.push(band);
+    }, this);
+    util.NodeWritetoFile("tobeparsed", tobeparseddata);
+  }
+
+  if (todayupdates.leftitems) {
+    todayupdates.leftitems.forEach(function (band) {
+      var name = band.name;
+      var fname = _.snakeCase(band.name);
+      var genre = _.replace(band.genre, '/', '-');;
+      var output = config.resultsdir + "" + genre + "/" + fname + ".json";
+      if (fs.exists(output)) {
+        fs.remove(output);
+      }
+    }, this);
+  }
+
+}

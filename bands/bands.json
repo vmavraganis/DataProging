@@ -2634,15 +2634,15 @@
 		"name": "AMON"
 	},
 	{
-		"country": "United Kingdom",
-		"genre": "Krautrock",
-		"link": "http://www.progarchives.com/artist.asp?id=1940",
-		"name": "AMON DÜÜL"
-	},
-	{
 		"country": "Germany",
 		"genre": "Krautrock",
 		"link": "http://www.progarchives.com/artist.asp?id=1994",
+		"name": "AMON DÜÜL"
+	},
+	{
+		"country": "United Kingdom",
+		"genre": "Krautrock",
+		"link": "http://www.progarchives.com/artist.asp?id=1940",
 		"name": "AMON DÜÜL"
 	},
 	{
@@ -4136,12 +4136,6 @@
 	{
 		"country": "United States",
 		"genre": "Progressive Metal",
-		"link": "http://www.progarchives.com/artist.asp?id=10163",
-		"name": "ARITIFICIAL LANGUAGE"
-	},
-	{
-		"country": "United States",
-		"genre": "Progressive Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=8457",
 		"name": "ARITY"
 	},
@@ -4462,6 +4456,12 @@
 		"genre": "Crossover Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=9734",
 		"name": "ARTIFICIAL HOME"
+	},
+	{
+		"country": "United States",
+		"genre": "Progressive Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=10163",
+		"name": "ARTIFICIAL LANGUAGE"
 	},
 	{
 		"country": "United States",
@@ -11802,6 +11802,12 @@
 		"name": "CONSPIRACY"
 	},
 	{
+		"country": "Canada",
+		"genre": "Tech/Extreme Prog Metal",
+		"link": "http://www.progarchives.com/artist.asp?id=10166",
+		"name": "CONTEMPLATOR"
+	},
+	{
 		"country": "Finland",
 		"genre": "Neo-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=5247",
@@ -16837,7 +16843,7 @@
 	},
 	{
 		"country": "New Zealand",
-		"genre": "Experimental/Post Metal",
+		"genre": "pan class=\"cls_DiscoText\">Experimental/Post Metal",
 		"link": "http://www.progarchives.com/artist.asp?id=5303",
 		"name": "ENDER"
 	},
@@ -47752,6 +47758,12 @@
 		"genre": "Proto-Prog",
 		"link": "http://www.progarchives.com/artist.asp?id=7395",
 		"name": "SILVER APPLES"
+	},
+	{
+		"country": "United Kingdom",
+		"genre": "Crossover Prog",
+		"link": "http://www.progarchives.com/artist.asp?id=10167",
+		"name": "SILVER HUNTER"
 	},
 	{
 		"country": "Italy",

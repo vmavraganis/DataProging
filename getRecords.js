@@ -4,7 +4,7 @@
 
 
 var casper = require('casper').create({
-    verbose: true,
+    verbose: false,
     logLevel: 'debug',
     pageSettings: {
         loadImages: false,
@@ -34,7 +34,7 @@ const _ = require("lodash");
 const config = require('./config');
 const util = config.utilities;
 const outputpath = config.outputpath;
-const bands = require('./bands/bands.json');
+const bands = require('./bands/tobeparsed.json');
 
 
 
@@ -53,7 +53,7 @@ casper.then(function () {
 });
 
 
-var that = this;
+
 casper.then(function () {
 
     var that=this;
