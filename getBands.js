@@ -10,6 +10,15 @@ var casper = require('casper').create({
 
 casper.on('url.changed',function(url) {
 casper.echo(url);
+
+   var check = [
+    'www.progarchives.com'
+  ];
+  check.forEach(function(needle) {
+    if (url.indexOf(needle) < 0) {
+      request.abort();
+    }
+
 if(url="about:blank"){
     this.bypass(777);
 }
