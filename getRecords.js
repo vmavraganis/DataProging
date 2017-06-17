@@ -34,7 +34,7 @@ const _ = require("lodash");
 const config = require('./config');
 const util = config.utilities;
 const outputpath = config.outputpath;
-const bands = require('./bands/tobeparsed.json');
+const bands = require('./bands/bands.json');
 
 
 
@@ -57,14 +57,18 @@ casper.then(function () {
 casper.then(function () {
 
     var that=this;
+    var counter=0;
     bands.forEach(function (band) {
         var name = band.name;
         var fname = _.snakeCase(band.name);
         var genre = _.replace(band.genre, '/', '-');;
         var outputpath = config.resultsdir + "" + genre + "/" + fname + ".json";
         var exists = fs.exists(outputpath);
-        if(!exists){
-
+        
+        if(exists){
+            counter++;
+            outputpath = config.resultsdir + "" + genre + "/" + fname + "("+counter+")"+".json";
+        }
         that.thenOpen((band.link), function () {
              var info={};
 			 var res={}
@@ -73,7 +77,7 @@ casper.then(function () {
 			 res['studioalbums']=info.studioalbums;//_.sortBy(info.studioalbums, ['result'],['desc']);
 			 res['livealbums']=info.livealbums;//_.sortBy(info.livealbums, ['result'],['asc']);
              util.CasperWritetoFile(outputpath, res) ? console.log("file" + outputpath + " created") : console.log("An error occured");
-        });}
+        });
         that.clearMemoryCache()
         
     });

@@ -1,5 +1,5 @@
 var casper = require('casper').create({
-    verbose: true,
+    verbose: false,
     logLevel: 'debug',
     pageSettings: {
         loadImages: false,
@@ -8,21 +8,7 @@ var casper = require('casper').create({
     }
 });
 
-casper.on('url.changed',function(url) {
-casper.echo(url);
 
-   var check = [
-    'www.progarchives.com'
-  ];
-  check.forEach(function(needle) {
-    if (url.indexOf(needle) < 0) {
-      request.abort();
-    }
-
-if(url="about:blank"){
-    this.bypass(777);
-}
-});
 
 var fs = require('fs');
 var _ = require("lodash");

@@ -9,9 +9,9 @@ const path = require('path');
 module.exports = function (app, db) {
 
     app.post('/bands', (req, res) => {
-        let country = req.body.country;
-        let genre = req.body.genre;
-        let name = req.body.onoma;
+        var country = req.body.country;
+        var genre = req.body.genre;
+        var name = req.body.onoma;
         genre = _.snakeCase(genre);
         country = _.startCase(country);
         name = _.upperCase(name);
@@ -19,7 +19,7 @@ module.exports = function (app, db) {
         response = {}
         response['data'] = _.filter(bands, function (band) {
 
-            let finalvar = true;
+            var finalvar = true;
 
             if (country != "") {
                 finalvar = finalvar && (band.country == country);
@@ -39,7 +39,7 @@ module.exports = function (app, db) {
         var name = req.params.name;
         name = _.upperCase(name);
         console.log(name);
-        let finalvar = true;
+        var finalvar = true;
         var Bands = []
         var response = {}
         var result = _.filter(bands, function (band) {
@@ -100,7 +100,7 @@ module.exports = function (app, db) {
         var name = req.params.name;
         name = _.upperCase(name);
         console.log(name);
-        let finalvar = true;
+        var finalvar = true;
         var Bands = []
         var response = {}
         var result = _.filter(bands, function (band) {
@@ -179,17 +179,19 @@ module.exports = function (app, db) {
 
 
     app.get('/genres', (req, res) => {
-
-        res.send(_
+        var response=_
             .map(_.uniqBy(bands, 'genre'), function (band) { return band.genre; })
-            .sort())
+            .sort()
+   
+        res.send(response);
     });
 
     app.get('/countries', (req, res) => {
-
-        res.send(_
+         var response=_
             .map(_.uniqBy(bands, 'country'), function (band) { return band.country; })
-            .sort())
+            .sort()
+        
+        res.send(response);
     });
 
 }

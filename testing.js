@@ -3,21 +3,27 @@ const util = require(config.util);
 const outputpath = config.outputpath;
 const fs = require('fs');
 const _ = require('lodash');
+const rp=require('request-promise');
+const countries=require('./bands/countries');
+const codes=require('./bands/countrycodes');
+// var chainpromises=[];
+// countries.forEach(function(country) {
+//     chainpromises.push(rp('https://restcountries.eu/rest/v2/name/'+country))
+// }, this);
 
+// var countrycodes={};
 
-
-
-
-
-// var filePath = 'c:/book/discovery.docx';
-// fs.unlinkSync(filePath);
-
-// var name = band.name;
-// var fname = _.snakeCase(band.name);
-// var genre = _.replace(band.genre, '/', '-');;
-// var outputpath = config.resultsdir + "" + genre + "/" + fname + ".json";
-
-
-
-
-// console.log(testdata);
+// Promise.all(chainpromises)
+// .then(values => { 
+//   values.forEach(function(element) {
+//       var test=JSON.parse(element);
+//             countrycodes[test[0].name]=test[0].alpha3Code;
+//   }, this);
+//   util.NodeWritetoFile("countrycodes",countrycodes)
+// })
+// .catch(reason => { 
+//   console.log(reason)
+// });
+countries.forEach(function(element) {
+    console.log(codes[element])
+}, this);
