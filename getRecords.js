@@ -34,8 +34,8 @@ const _ = require("lodash");
 const config = require('./config');
 const util = config.utilities;
 const outputpath = config.outputpath;
-const bands = require('./bands/bands.json');
-
+const bands = require('./bands/tobeparsed.json');
+const countries=require('./bands/countries.json');
 
 
 casper.on('remote.message', function (msg) {
@@ -62,21 +62,28 @@ casper.then(function () {
         var name = band.name;
         var fname = _.snakeCase(band.name);
         var genre = _.replace(band.genre, '/', '-');;
-        var outputpath = config.resultsdir + "" + genre + "/" + fname + ".json";
-        var exists = fs.exists(outputpath);
         
-        if(exists){
-            counter++;
-            outputpath = config.resultsdir + "" + genre + "/" + fname + "("+counter+")"+".json";
-        }
+        
+        
+       
+           
+        
         that.thenOpen((band.link), function () {
+           var outputpath =config.resultsdir+""+genre +"/"+fname+""+countries[band.country]+".json";
              var info={};
 			 var res={}
 			 info = this.evaluate(util.parseRecords);
              res['title']=name;
-			 res['studioalbums']=info.studioalbums;//_.sortBy(info.studioalbums, ['result'],['desc']);
-			 res['livealbums']=info.livealbums;//_.sortBy(info.livealbums, ['result'],['asc']);
-             util.CasperWritetoFile(outputpath, res) ? console.log("file" + outputpath + " created") : console.log("An error occured");
+			 for(var prop in info){
+                 res[prop]=info[prop];
+             }
+             util.CasperWritetoFile(outputpath, res) 
+             ? console.log("file" + outputpath + " created") : console.log("An error occured");
+
+             
+
+
+             
         });
         that.clearMemoryCache()
         

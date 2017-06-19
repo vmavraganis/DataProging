@@ -58,38 +58,25 @@ module.exports.parsebands = function () {
 
 //parsing records from the given url.Returns array of data
 module.exports.parseRecords = function () {
-  var categories = document.querySelectorAll("h3+table");
-  var studioalbumshtml = categories[0].querySelectorAll("td");
-  var livealbumshtml = categories[1].querySelectorAll("td");
-  var albums = {};
-  albums['studioalbums'] = [];
-  albums['livealbums'] = [];
-
-  for (var i = 0; i < studioalbumshtml.length; i++) {
+var eidos=['StudioAlbums','LiveAlbums','Videos','Boxset','Singles'];
+var albums = {};
+eidos.forEach(function(element,index) {
+  albums[element]=[];
+  var temp=document.querySelectorAll("h3+table")[index].querySelectorAll("td");
+    for (var i = 0; i < temp.length; i++) {
     album = {}
-    album['title'] = studioalbumshtml[i].querySelector('strong').innerText;
-    album['link'] = studioalbumshtml[i].querySelector('a').href;
-    album['year'] = studioalbumshtml[i].querySelector('span:nth-of-type(3)').innerText;
-    var rating = studioalbumshtml[i].querySelector('span:nth-of-type(1)').innerText;
-    var users = studioalbumshtml[i].querySelector('span:nth-of-type(2)').innerText;
+    album['title'] = temp[i].querySelector('strong').innerText;
+    album['link'] = temp[i].querySelector('a').href;
+    album['year'] = temp[i].querySelector('span:nth-of-type(3)').innerText;
+    var rating = temp[i].querySelector('span:nth-of-type(1)').innerText;
+    var users = temp[i].querySelector('span:nth-of-type(2)').innerText;
     album['result'] = Math.log(users) * rating
-    albums.studioalbums.push(album);
+    albums[element].push(album);
   };
+}, this);
+return albums;
+}
 
-  for (var i = 0; i < livealbumshtml.length; i++) {
-    album = {}
-    album['title'] = livealbumshtml[i].querySelector('strong').innerText;
-    album['link'] = livealbumshtml[i].querySelector('a').href;
-    album['year'] = livealbumshtml[i].querySelector('span:nth-of-type(3)').innerText;
-    rating = livealbumshtml[i].querySelector('span:nth-of-type(1)').innerText;
-    users = livealbumshtml[i].querySelector('span:nth-of-type(2)').innerText;
-    album['result'] = Math.log(users) * rating
-    albums.livealbums.push(album);
-  };
-
-
-  return albums;
-};
 
 //returns any date to DDMMYYYY format
 module.exports.GetStringDateFormat = function (date) {
@@ -101,10 +88,12 @@ module.exports.GetStringDateFormat = function (date) {
 }
 
 //creates files with filename title and  data using casper fs commands
-module.exports.CasperWritetoFile = function (filename, data) {
+module.exports.CasperWritetoFile = function (filename, data,flag) {
+  var flag=flag||"w"
   try {
-    var f = fs.open(filename, 'w');
-    f.write(JSON.stringify(data, null, '\t'), filename, "w");
+
+    var f = fs.open(filename,flag);
+    f.write(JSON.stringify(data, null, '\t'), filename,flag);
     f.close();
     return true;
   }

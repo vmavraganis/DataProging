@@ -1,5 +1,6 @@
 var _ = require("lodash");
 const bands = require('../../bands/bands.json');
+const countries=require('../../bands/countries.json');
 const fs = require('fs');
 const config = require('../../config');
 const util = config.utilities;
@@ -15,17 +16,18 @@ module.exports = function (app, db) {
         genre = _.snakeCase(genre);
         country = _.startCase(country);
         name = _.upperCase(name);
-
+        
         response = {}
         response['data'] = _.filter(bands, function (band) {
 
             var finalvar = true;
-
-            if (country != "") {
-                finalvar = finalvar && (band.country == country);
+            
+            if (country !== "") {
+                finalvar = finalvar && (_.startCase(band.country) === country);
+                
             }
-            if (genre != "") {
-                finalvar = finalvar && (_.snakeCase(band.genre) == genre);
+            if (genre !== "") {
+                finalvar = finalvar && (_.snakeCase(band.genre) === genre);
             }
             return finalvar;
         });
@@ -59,25 +61,18 @@ module.exports = function (app, db) {
         }
         console.log("artist found");
 
-
         res.set('Bands', response.data.length);
-
-
-
 
         result.forEach(function (band) {
             var name = band.name;
             var fname = _.snakeCase(band.name);
             var genre = _.replace(band.genre, '/', '-');
             var dir = "bands";
-            var outputpath = path.resolve(dir, genre, fname + ".json");
+            var outputpath = path.resolve(dir,genre,fname+""+countries[band.country]+".json");
             util.readJSONFile(outputpath, function (err, data) {
                 if (err) { count = count - 1; throw err; }
                 var resultband = {}
                 resultband['country'] = band.country;
-                // resultband['Title'] = data.title
-                // resultband['studioalbums'] = data.studioalbums;
-                // resultband['livealbums'] = data.livealbums;
                 for (var prop in data){
                     resultband[prop]=data[prop];
                 }
@@ -88,8 +83,6 @@ module.exports = function (app, db) {
                     res.send(Bands);
             });
         });
-
-        //response=bands
 
 
 
@@ -136,13 +129,11 @@ module.exports = function (app, db) {
                 if (err) { count = count - 1; throw err; }
                 var resultband = {}
                 resultband['country'] = band.country;
-                // resultband['Title'] = data.title
-                // resultband['studioalbums'] = data.studioalbums;
-                // resultband['livealbums'] = data.livealbums;
+              
                 for (var prop in data){
                     resultband[prop]=data[prop];
                 }
-               // if(resultband.studioalbums)
+               
                 Bands.push(resultband);
                 count = count - 1;
                 if (count == 0)
@@ -150,22 +141,12 @@ module.exports = function (app, db) {
             });
         });
 
-        //response=bands
 
 
 
     });
 
 
-
-    //  res.send(require(outputpath).livealbums);
-    // fs.readFile(outputpath, 'utf8', function (err, data) {
-    //     if (err)
-    //         // error handling
-    //         console.log(err);
-    //     var obj = JSON.parse(data);
-    //     console.log(obj);
-    // });
 
 
 
