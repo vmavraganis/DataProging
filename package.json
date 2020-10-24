@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "casper": "^0.1.1",
     "casperjs": "^1.1.4",
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1",
+    "d3-dsv": "^2.0.0",
+    "nightmare": "^3.0.2",
+    "phantomjs": "^2.1.7",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }
