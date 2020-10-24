@@ -1,0 +1,8 @@
+https://www.uuidgenerator.net/api/version4
+get request to take uuid (use it in getBands)
+
+duplicates
+
+same name 
+same genre
+different country

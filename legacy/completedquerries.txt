@@ -1,0 +1,53 @@
+
+/////////////////////////////////////////////////////bands per country/////////////////////////////////////////////////////
+
+
+_und
+.chain(bands)
+.groupBy(function(band){ return band.country})
+.pairs();
+
+
+
+///////////////////////////////////////////////////// ordered list of krautrock bands : Country: count/////////////////////////////////////////////////////
+
+_und
+.chain(bands)
+//.filter(function(band){ return band.genre =="Krautrock"})
+.countBy(function(band){ return band.country})
+.map(function(cnt, country) {
+        return {count:cnt,
+                country:country,
+                res:country+":"+cnt
+        }
+    })
+
+.sortBy('count').reverse()
+.pluck("res")
+;
+
+
+/////////////////////////////////////////////////////bands per genre per country/////////////////////////////////////////////////////
+var result=[];
+let countries=
+_und
+.chain(bands)
+.groupBy(function(band){ return band.country})
+.pairs()
+.forEach(function(element) {
+let res={};
+res.country=element[0];
+res.bands=_und.chain(element[1])
+              .countBy(function(band){ return band.genre})
+              .map(function(cnt, genre) {
+        return {count:cnt,
+                genre:genre,
+                result:genre+" : "+cnt            
+                }
+                })
+        .sortBy('count').reverse()
+        .pluck('result')
+             ;
+result.push(res);
+ }, this);
+
