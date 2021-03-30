@@ -6,3 +6,4 @@ res.*
 /countries/*
 gregorycoffeorder.js
 fixes/countries.js
+test.js
