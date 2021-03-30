@@ -9,11 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "casper": "^0.1.1",
-    "casperjs": "^1.1.4",
+    "axios": "^0.21.0",
+    "cheerio": "^1.0.0-rc.3",
     "d3-dsv": "^2.0.0",
-    "nightmare": "^3.0.2",
-    "phantomjs": "^2.1.7",
+    "joi": "^17.4.0",
+    "knex": "^0.95.3",
+    "koa": "^2.13.1",
+    "koa-router": "^10.0.0",
+    "moment": "^2.29.1",
+    "nightmare": "^2.8.0",
+    "pg": "^8.4.2",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }

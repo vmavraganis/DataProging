@@ -1,3 +1,4 @@
 /node_modules/
 /bands/*
 failedParsings
+providers/progarchives/data/*

@@ -1,23 +1,16 @@
-
-
 module.exports={
-bandsurl:'"http://www.progarchives.com/bands-alpha.asp?letter="',
+bandsurl:'http://www.progarchives.com/bands-alpha.asp?letter=',
+artistsurl:"http://www.progarchives.com/artist.asp?id=",
 progarchivesBaseUrl:'http://www.progarchives.com',
-util :'./utilities',
-outputpath :"./bands/bands.json",
-resultsdir:"./bands/",
-bandparsingErrors :"./bands/failedParsings.json",
+resultsdir:__dirname+"/providers/progarchives/data/",
+bandparsingErrors :__dirname+"/providers/progarchives/data/failedParsings.json",
 writeToFileModes : {
     write: 'write',
     append: 'append',
   },
 errorFileName : 'failedParsings',
 bandParsingSuccesFileName:"bands",
-testurls : ['http://www.progarchives.com/bands-alpha.asp?letter=h',
-        'http://www.progarchives.com/bands-alpha.asp?letter=b',
-        'http://www.progarchives.com/bands-alpha.asp?letter=f'
-    ]
+recordsParsingSuccesFileName:"records",
+
 
 }
-
-module.exports.utilities=require('./utilities');
