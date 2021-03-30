@@ -2,3 +2,7 @@
 /bands/*
 failedParsings
 providers/progarchives/data/*
+res.*
+/countries/*
+gregorycoffeorder.js
+fixes/countries.js
