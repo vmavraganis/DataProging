@@ -254,8 +254,43 @@ logErrors = (data, errorlogfiles) => {
         }
     })
 }
+
+
+getAllbandwithPromises = async( urls = []) =>{
+    return new Promise (async(resolve,reject)=>{
+        try {
+            urls = await GetUrlPromise(urls)
+            const letterspromises = []
+            urls.map((url)=>{
+                letterspromises.push(new Promise((resolve,reject)=>{
+                    try{
+                        resolve(getBand(url))
+                    }
+                    catch(err){
+                        reject(err)
+                    }
+                }))
+            })
+
+            const bands =  await Promise.all(letterspromises)
+            resolve(bands)
+        }
+        catch (err) {
+            console.log(err)
+            reject(err)
+        }
+    })
+
+}
+
+
 module.exports.urls = getURLS
 module.exports.getAllBandsTask = getAllBandsTask
 module.exports.getBand = getBand
 module.exports.getBands = getBands
+module.exports.getAllbandwithPromises = getAllbandwithPromises
 
+
+
+
+    

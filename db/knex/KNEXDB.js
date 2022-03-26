@@ -44,7 +44,7 @@ const FilterBandsQuery=(querry)=>
  .where('progarchivesid',querry.progarchivesid)
 }
  if(querry.name){
-   const name = "%"+querry.name.toUpperCase()+"%"
+   const name = "%"+querry.name.toUpperCase().trim()+"%"
   result
  .where('bands.name', 'like', name)
 }

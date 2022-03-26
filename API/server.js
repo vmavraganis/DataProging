@@ -10,7 +10,7 @@ const HOST = "0.0.0.0"
 app.use(async (ctx, next) => {
   console.log(ctx)
   console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
-  utils.NodeWritetoFile('logs',ctx.request.ip)
+  utils.NodeWritetoFile('logs',ctx.request.ip,"append")
   await next();
 });
 app.use(countriesRoutes.routes());

@@ -77,7 +77,8 @@ module.exports.saveToDB = async (querries) => {
 test = async () => {
    try{
 //     //scrap artists from site
-//     const artistsOnSite = await bands.getAllBandsTask();
+    const artistsOnSite = await bands.getAllbandwithPromises();
+    console.log(artistsOnSite)
     
 //     //get artists from DB
 //     const rows = await this.executequery(
@@ -101,13 +102,13 @@ test = async () => {
 //      console.log(utilities.checkForMissingData(fetchedArtistsToDB, res))
 //      await records.getRecordsProcess(utilities.checkForMissingData(res, fetchedArtistsToDB))
      
-     //scrap new artists records
-     const recordstoQuerries = await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName+".json", queeries.populateRecordsQuerries)
-     const bios =  await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName + ".json", queeries.fetchBiographies)
+    //  //scrap new artists records
+    //  const recordstoQuerries = await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName+".json", queeries.populateRecordsQuerries)
+    //  const bios =  await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName + ".json", queeries.fetchBiographies)
 
 
-      //save them to db
-      const save = this.saveToDB(recordstoQuerries.concat(bios))
+    //   //save them to db
+    //   const save = this.saveToDB(recordstoQuerries.concat(bios))
    }
    catch(err){
        console.log(err)
@@ -133,4 +134,4 @@ test = async () => {
 
 
 // countries()
-//test()
+test()

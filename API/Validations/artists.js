@@ -11,7 +11,7 @@ const regions = [
 const schema = Joi.object({
     id: Joi.number().optional(),
     country: Joi.number().optional(),
-    region: Joi.string().optional().valid(regions),
+    region: Joi.string().optional().valid(...regions),
     genre: Joi.number().optional(),
     name: Joi.string().optional(),
     progarchivesid: Joi.number().optional(),

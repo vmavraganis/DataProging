@@ -20,6 +20,7 @@ router.get(BASE_URL +'bands', async (ctx,next) => {
       const rawdata = await getArtistsQuery(ctx.request.query)
       let data  = addRecordsToArtistQuery(rawdata)
       .map(({artist,records})=>{
+        const biography = (artist.progarchivesbiography)? artist.progarchivesbiography.replace(/(?:\r\n|\r|\n)/g, '<br>'):null
         return {
           name:artist.name,
           country:artist.country,
@@ -28,7 +29,7 @@ router.get(BASE_URL +'bands', async (ctx,next) => {
             genre:artist.genre,
             id:artist.progarchivesid,
             url:"http://www.progarchives.com/artist.asp?id="+artist.progarchivesid,
-            biography: (artist.progarchivesbiography)? artist.progarchivesbiography.replace(/(?:\r\n|\r|\n)/g, '<br>'):null
+            biography
           },
           records
         }
