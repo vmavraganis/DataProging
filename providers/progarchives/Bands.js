@@ -102,6 +102,8 @@ const getBand = async (url) => {
 }
 
 
+
+
 const getBands = async (urls = []) => {
 
 
@@ -119,65 +121,63 @@ const getBands = async (urls = []) => {
 
 const getAllBandsTask = async (urls = [], fileWritimgmode = config.writeToFileModes.write, displayBrowser = false) => {
     
+    return new Promise(async(resolve, reject) => {
+
+
     try {
         urls = await GetUrlPromise(urls)
     }
     catch (err) {
         console.log(err)
-        return err
+        reject(err)
     }
 
-   return getBands(urls)
-        .then((data) => {
-            return dataTofile(data, config.bandParsingSuccesFileName, config.errorFileName, fileWritimgmode)
-        })
-        .then(() => {
-            const path = config.bandparsingErrors
-            if (!utilities.fileExists(path)) return null
-            return new Promise((resolve, reject) => {
-                const failures = utilities.readFile(path)
-                    .then((data) => {
-                        if (data.length)
-                            getBands(data.map((datum) => { return datum.url }))
-                                .then(data =>
-                                    resolve(dataTofile(data, config.bandParsingSuccesFileName, config.errorFileName, config.writeToFileModes.append)))
-                                .catch((err) => reject(err))
-                    }
-                    )
-                    .catch((err) => reject(err))
-            })
-        })
-        .then(() => {
-            return new Promise((resolve, reject) => {
-                try {
-                const path = config.resultsdir + config.bandParsingSuccesFileName + ".json"
-                if (!utilities.fileExists(path)) resolve(null)
-                const bands = utilities.readFile(path)
-                    .then((data) => {
-                        dataFromFile = data.map((letter) => { return letter[0].letter })
+    try{
+    const bands = await getBands(urls) 
+    await dataTofile(bands, config.bandParsingSuccesFileName, config.errorFileName, fileWritimgmode)
+    const path = config.bandparsingErrors
+    if (!utilities.fileExists(path)) {
+    console.log("finished with no errors")
+    resolve([])    
+    return;
+}
+}
+catch(err){
+    console.log(err)
+    reject(err)
+
+}
+    const path = config.bandparsingErrors
+    const failures = await utilities.readFile(path)
+    if(failures.length){
+            try{
+                const failedbands = await getBands(failures.map((datum) => { return datum.url }))
+                await dataTofile(failedbands, config.bandParsingSuccesFileName, config.errorFileName, config.writeToFileModes.append)
+                console.log("added errors")
+                
+            }
+            catch(err){
+           console.log(err)
+           reject(err)
+            }
+    }
+    const finalpath = config.resultsdir + config.bandParsingSuccesFileName + ".json"
+    if (!utilities.fileExists(finalpath)) {
+        console.log(null)
+    }
+    const finalbands = await  utilities.readFile(finalpath)
+    dataFromFile = finalbands.map((letter) => { return letter[0].letter })
                         intialData = urls.map((url) => { return url.substring(url.indexOf("=") + 1, url.length) })
                         const differences = utilities.checkForMissingData(intialData, dataFromFile)
                         if (differences.length) {
-                            resolve(getAllBandsTask(differences.map((diff) => { return config.bandsurl + diff }), config.writeToFileModes.append
+                            resolve(await getAllBandsTask(differences.map((diff) => { return config.bandsurl + diff }), config.writeToFileModes.append
                             ))
                         }
                         else {
-                            resolve(data)
+                            resolve(finalbands)
                         }
                     }
-                    )
-                }
-                catch (err){
-                    console.log(err)
-                reject(err)
-                }
-
-            }
-            )
-
-        })
-        // .then(() => console.log("finished"))
-        // .catch((err) => console.log(err))
+)
 }
 
 dataTofile = (data, successfile, errorlogfiles, mode) => {
@@ -211,8 +211,8 @@ logData = async (data, mode, successfile) => {
                     }) : letter
                 })
 
-                if (mode == "append" && this.fileExists(file)) {
-                    this.readFile(file)
+                if (mode == "append" && utilities.fileExists(file)) {
+                    utilities.readFile(file)
                         .then(async (dataFromFile) => {
                             dataFromFile = dataFromFile ? dataFromFile : []
                             finalData = dataFromFile.concat(finalData)
@@ -256,39 +256,13 @@ logErrors = (data, errorlogfiles) => {
 }
 
 
-getAllbandwithPromises = async( urls = []) =>{
-    return new Promise (async(resolve,reject)=>{
-        try {
-            urls = await GetUrlPromise(urls)
-            const letterspromises = []
-            urls.map((url)=>{
-                letterspromises.push(new Promise((resolve,reject)=>{
-                    try{
-                        resolve(getBand(url))
-                    }
-                    catch(err){
-                        reject(err)
-                    }
-                }))
-            })
 
-            const bands =  await Promise.all(letterspromises)
-            resolve(bands)
-        }
-        catch (err) {
-            console.log(err)
-            reject(err)
-        }
-    })
-
-}
 
 
 module.exports.urls = getURLS
 module.exports.getAllBandsTask = getAllBandsTask
 module.exports.getBand = getBand
 module.exports.getBands = getBands
-module.exports.getAllbandwithPromises = getAllbandwithPromises
 
 
 

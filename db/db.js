@@ -32,7 +32,7 @@ module.exports.JSONFileToQuerries = (path, populateQueeriesfn) => {
     })
 }
 
-module.exports.executeQuerry= async (querry,client=postgressKnexClient)=>{
+const executeQuerry= async (querry,client=postgressKnexClient)=>{
 return new Promise(async (resolve,reject)=>{
     try{
         if(client == postgressKnexClient){
@@ -40,7 +40,6 @@ return new Promise(async (resolve,reject)=>{
             resolve (data)
         }
         else if (client == postgressSQLClient){
-            console.log(querry,"in db.js line 50")
         const client = await pool.connect()
         const res = await client.query(querry)
         await client.release()
@@ -67,48 +66,90 @@ module.exports.saveToDB = async (querries) => {
                 client.release()
             }
         })().catch(err => {
+            console.log(err)
             console.log(querry)
         })
     }
     )
 }
 
+const getAllIds = async()=>{
+    const bandsandids= await knex.getbandsnamesids();
+    return bandsandids.map((band)=>band.progarchivesid);
+}
 
-test = async () => {
+
+test= async () => {
    try{
 //     //scrap artists from site
-    const artistsOnSite = await bands.getAllbandwithPromises();
-    console.log(artistsOnSite)
+    const artistsOnSite = await bands.getAllBandsTask();
     
-//     //get artists from DB
-//     const rows = await this.executequery(
-//           "select  progarchivesid from bands  group by progarchivesid  order by progarchivesid desc")
-//     const fetchedArtistsToDB = rows.rows.map((row) => row.progarchivesid.toString())
+    //get artists from DB
     
-//     //get Scrapped Artists id
-//     const artistsFromFile = await utilities.readFile(providersconfig.resultsdir + providersconfig.bandParsingSuccesFileName + ".json")
+    const countries = await(knex.executeSQLQuery(knex.CountriesQuery()))
+    const genres = await(knex.executeSQLQuery(knex.GenresQuery()))
+    let bandsandids= await knex.getbandsnamesids();
+    const fetchedArtistsFromDB = bandsandids.map((row) => row.progarchivesid.toString())
+
     
-//     const res = artistsFromFile
-//          .map((letter) => letter.map((artist) => { return artist.progArchivesID }))
-//          .flat(Infinity)
-//          .filter((id) => !!id)
+    //get Scrapped Artists id
+    const artistsFromFile = await utilities.readFile(providersconfig.resultsdir + providersconfig.bandParsingSuccesFileName + ".json")
+
+    const resids = artistsFromFile
+         .map((letter) => letter.map((artist) => { return artist.progArchivesID }))
+         .flat(Infinity)
+         .filter((id) => !!id)
+
+         const newids =  utilities.checkForMissingData(resids, fetchedArtistsFromDB)
+         if(!newids.length){
+             console.log("no new entries")
+             return;
+         }
+
+         const newartists = artistsFromFile
+         .map((letter) => letter.filter((artist) => { return artist.progArchivesID }))
+         .flat(Infinity)
+         .filter((id) => !!id)
+         .filter((artist)=>newids.indexOf(artist.progArchivesID)>=0)
+         .map((artist) => {
+            const obj = Object.assign({}, artist);
+            obj.country =  countries.find((country)=>country.name == artist.country).id
+            obj.genre = genres.find((genre)=>genre.genre_name == artist.genre).id
+            return obj
+        } )
+         
+
+         const newartistsqueeries =populateArtistsQuerries(newartists)
+         let saveewartists = await this.saveToDB(newartistsqueeries)
+          bandsandids= await knex.getbandsnamesids();
 
 
-// //compare scrapped artists with artists from db
 
-//     //new artists
-//      console.log(utilities.checkForMissingData(res, fetchedArtistsToDB))
+
+
 //     //deleted from site 
-//      console.log(utilities.checkForMissingData(fetchedArtistsToDB, res))
-//      await records.getRecordsProcess(utilities.checkForMissingData(res, fetchedArtistsToDB))
+      console.log(utilities.checkForMissingData(fetchedArtistsFromDB, resids))
+
+        // get all records
+        //const ids = await getAllIds(); 
+        //records.getRecordsProcess(ids)
+
+          //  //scrap new artists records
+      await records.getRecordsProcess(newids)
      
-    //  //scrap new artists records
-    //  const recordstoQuerries = await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName+".json", queeries.populateRecordsQuerries)
-    //  const bios =  await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName + ".json", queeries.fetchBiographies)
-
-
+      const newRecords =  await utilities.readFile(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName + ".json")
+      const recordstoQuerries  = queeries.populateRecordsQuerries( 
+        newRecords.map((record)=>{
+        const obj = Object.assign({}, record);
+        obj.artist  =  bandsandids.find((band)=>band.progarchivesid == record.artist).id
+        return obj
+      }))
+      //await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName+".json", queeries.populateRecordsQuerries)
+      const bios =  await this.JSONFileToQuerries(providersconfig.resultsdir + providersconfig.recordsParsingSuccesFileName + ".json", queeries.fetchBiographies)
+      console.log(recordstoQuerries)
     //   //save them to db
-    //   const save = this.saveToDB(recordstoQuerries.concat(bios))
+     const savebios = await this.saveToDB(bios)
+     const saverecords = await this.saveToDB(recordstoQuerries)
    }
    catch(err){
        console.log(err)
@@ -116,8 +157,8 @@ test = async () => {
 
 
 
-//      //records.getRecordsProcess(utilities.checkForMissingData(res, fetchedArtistsToDB))
-//      chuncids = utilities.arrayToChunks(fetchedArtistsToDB, 100)
+//      //records.getRecordsProcess(utilities.checkForMissingData(res, fetchedArtistsFromDB))
+//      chuncids = utilities.arrayToChunks(fetchedArtistsFromDB, 100)
 //      utilities.executeChunc(chuncids,records.getRecordsProcess)
 
 }

@@ -8,15 +8,18 @@ const knex = require('knex')({
   });
 
 
-const query2 =
+const bandsnamesids =
 knex
 .select('bands.name as band')
-.select('countries.name as coyntry')
+.select('bands.id as id')
+.select('bands.progarchivesid as progarchivesid')
 .from('bands')
-.innerJoin('countries', 'countries.id', 'bands.country')
-.orderBy('countries.name')
 
+const getbandsnamesids = async()=>{
 
+  const data = await executeSQLQuery(bandsnamesids)
+  return data;
+}
 
 
 const FilterBandsQuery=(querry)=>
@@ -131,4 +134,5 @@ module.exports.executeSQLQuery = executeSQLQuery
 module.exports.BandsQuery = FilterBandsQuery
 module.exports.GenresQuery = getGenresQuery
 module.exports.CountriesQuery = getCountriesQuery
+module.exports.getbandsnamesids = getbandsnamesids
 module.exports.knex = knex

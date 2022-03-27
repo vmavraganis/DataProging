@@ -43,7 +43,7 @@ const recordToQuery = (record)=>{
     record.progArchivesRating =(record.progArchivesRating)?record.progArchivesRating:0
 
     const query =   `
-    INSERT INTO records (category,progArchivesAlbumId,progArchivesRating,title,year,progarchivesartist) 
+    INSERT INTO records (category,progArchivesAlbumId,progArchivesRating,title,year,artistid) 
     VALUES 
     ('${record.category}' ,
     '${record.progArchivesAlbumlink}',
@@ -58,7 +58,7 @@ const recordToQuery = (record)=>{
     title = '${record.title.replace(/'/g,"''")}',
     progArchivesRating = '${record.progArchivesRating}',
     year = '${year}',
-    progarchivesartist = '${record.progarchivesartist}'
+    artistid = '${record.progarchivesartist}'
     ;
     `
     return query
@@ -77,12 +77,10 @@ fetchBiographies = (data)=>{
 populateArtistsQuerries = (data)=>{
 
     const querries = []
-     data.forEach( letter => {
-        letter.filter((artist)=>artist.country).forEach( artist => {
-           querries.push(artisToQuery(artist))
-        }
-        );   
-    });
+     data.forEach( artist => {
+    
+           querries.push(artisToQuery(artist))})
+   
     return querries
 }
 
